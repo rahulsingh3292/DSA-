@@ -1,7 +1,5 @@
 class Solution:
   def trappingWater(self,arr,n):
-    
-    
     left=[0]*n 
     left[0]=arr[0]
     for i in range(1,n):
@@ -14,7 +12,7 @@ class Solution:
     
     ans = 0 
     for i in range(n):
-      ans += min(left[i],right[i])-arr[i] 
+      ans +=min(left[i],right[i])-arr[i] 
     return ans 
 
 arr = [3,0,0,2,0,4]

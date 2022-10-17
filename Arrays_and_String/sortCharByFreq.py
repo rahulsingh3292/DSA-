@@ -10,8 +10,6 @@ class Solution:
         data[char] =[1,char]
     sortedFreqData=sorted(data.values())
     return "".join([char*count for count,char in sortedFreqData[::-1]])
-   
-    
   
   def frequencySort(self,string):
     return "".join([char*count for char,count in Counter(string).most_common()])

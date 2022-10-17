@@ -1,7 +1,5 @@
 
 class Solution:
-
-    
   def chalkReplacer(self,chalk: list[int], n: int)-> int:
     
     remian_chalks = n 

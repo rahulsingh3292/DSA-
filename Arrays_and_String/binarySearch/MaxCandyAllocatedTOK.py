@@ -1,4 +1,3 @@
-
 """
 # Q-> maximum candy allocated to k children .. 
 
@@ -13,32 +12,35 @@ if count >= k return True else return False
 if True then try for next_max_candy..
 
 """
+
+
 class Solution:
-  def possible(self,arr: list[int], candy: int,k: int )-> bool: 
-    
-    count = 0 
-    for n in arr:
-       count+=n//candy 
-    if count>=k : return True 
-    return False
-    
-  def maximumCandies(self, arr: list[int], k: int)-> int: 
-    low: int = 0 
-    high: int = max(arr) 
-    candy: int = 1
-    
-    while low<=high:
-      mid: int = low+(high-low)//2 
+    def possible(self, arr: list[int], candy: int, k: int) -> bool:
 
-      if self.possible(arr,mid,k):
-        candy = mid 
-        low=mid+1 
-      else:
-        high=mid-1 
-        
-    return candy 
+        count = 0
+        for n in arr:
+            count += n // candy
+        if count >= k:
+            return True
+        return False
 
-maxmimum = Solution().maximumCandies 
-arr = [2,5]
-print(maxmimum(arr,8))
-    
+    def maximumCandies(self, arr: list[int], k: int) -> int:
+        low: int = 0
+        high: int = max(arr)
+        candy: int = 1
+
+        while low <= high:
+            mid: int = low + (high - low) // 2
+
+            if self.possible(arr, mid, k):
+                candy = mid
+                low = mid + 1
+            else:
+                high = mid - 1
+
+        return candy
+
+
+maxmimum = Solution().maximumCandies
+arr = [2, 5]
+print(maxmimum(arr, 8))

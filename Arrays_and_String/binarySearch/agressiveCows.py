@@ -9,39 +9,31 @@
  
 """
 
-class Solution: 
-  def possible(self,arr,dist,k):
-    cow = 1 
-    lastPos = arr[0] 
-    for n in arr:
-      if n-lastPos >= dist:
-        cow+=1 
-        if cow == k:
-          return True 
-        lastPos = n 
-        
-    return False 
-         
-        
-  
-  def bSearch(self,arr,low,high,k,ans= -1):
-    if low<= high:
-      dist = low+(high-low)//2 
-      
-      if self.isPossible(arr,dist,k):
-        ans = dist 
-        return self.bSearch(arr,dist+1,high,k,ans) 
-      return self.bSearch(arr,low,dist-1,ans)
-      
-    return ans 
-      
-    
-  
-  def agressiveCows(self,arr,k):
-    arr.sort()
-    return self.bSearch(arr,k,0,max(arr))
-    
-  
-    
-    
-      
+
+class Solution:
+    def possible(self, arr, dist, k):
+        cow = 1
+        lastPos = arr[0]
+        for n in arr:
+            if n - lastPos >= dist:
+                cow += 1
+                if cow == k:
+                    return True
+                lastPos = n
+
+        return False
+
+    def bSearch(self, arr, low, high, k, ans=-1):
+        if low <= high:
+            dist = low + (high - low) // 2
+
+            if self.isPossible(arr, dist, k):
+                ans = dist
+                return self.bSearch(arr, dist + 1, high, k, ans)
+            return self.bSearch(arr, low, dist - 1, ans)
+
+        return ans
+
+    def agressiveCows(self, arr, k):
+        arr.sort()
+        return self.bSearch(arr, k, 0, max(arr))
